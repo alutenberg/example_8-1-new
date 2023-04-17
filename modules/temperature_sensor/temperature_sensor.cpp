@@ -15,6 +15,7 @@
 //=====[Declaration and initialization of public global objects]===============
 
 AnalogIn lm35(A1);
+Ticker tickerTemperatureSensorSample;
 
 //=====[Declaration of external public global variables]=======================
 
@@ -38,6 +39,9 @@ void temperatureSensorInit()
     for( i=0; i<LM35_NUMBER_OF_AVG_SAMPLES ; i++ ) {
         lm35ReadingsArray[i] = 0;
     }
+
+    tickerTemperatureSensorSample.attach( temperatureSensorUpdate(), 
+                                        ( (float) SYSTEM_TIME_INCREMENT_MS / 1000.0 );
 }
 
 void temperatureSensorUpdate()

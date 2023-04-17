@@ -44,7 +44,6 @@ void fireAlarmInit()
 
 void fireAlarmUpdate()
 {
-    temperatureSensorUpdate();
     gasSensorUpdate();
 
     overTemperatureDetectorState = temperatureSensorReadCelsius() > 
